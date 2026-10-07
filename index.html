@@ -96,8 +96,11 @@
   .colL > section:first-child,
   .colR > section:first-child{margin-top:26px;}
   .colR .verdict{margin-top:26px;}
+  /* 좌우 칸 사이 구분선 — 더 긴 칸 높이까지 이어진다 */
+  .colR{align-self:stretch;border-left:1px solid var(--line);padding-left:34px;}
   @media (max-width:980px){
     .cols{display:block;}
+    .colR{border-left:none;padding-left:0;}
     .colR .verdict{margin-top:20px;}
   }
 
