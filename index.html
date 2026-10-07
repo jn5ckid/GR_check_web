@@ -10,12 +10,12 @@
 <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
 <style>
   :root{
-    --paper:#FFFFFF; --ink:#1B1C17; --ink-soft:#666A5D; --ink-faint:#93968A;
-    --line:#DEDEDA; --line-soft:#EDEDEA;
-    --pine:#087263; --pine-dim:#065A4F; --pine-wash:#F0F6F4;
+    --paper:#FFFFFF; --ink:#151D1B; --ink-soft:#5B6C68; --ink-faint:#889994;
+    --line:#D7E0DE; --line-soft:#E9EEED;
+    --pine:#087263; --pine-dim:#065A4F; --pine-wash:#E9F7F3;
     --flag:#9A5B00; --flag-wash:#FBF5EC;
-    --amber:#A8760B; --amber-wash:#FDF7EA; --amber-line:#E3CE9E;
-    --gray-wash:#F5F5F2; --lack:#B23B32;
+    --amber:#966800; --amber-wash:#FDF7EA; --amber-line:#E3CE9E;
+    --gray-wash:#F3F5F5; --lack:#B23B32;
     --arch:#A4413C; --common:#C07A28; --eng:#2E5E96; --field:#2F6B4F;
     --mono: ui-monospace,'SF Mono','Menlo','Consolas',monospace;
   }
@@ -28,8 +28,8 @@
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px;}
   :focus-visible{outline:2px solid var(--pine);outline-offset:2px;border-radius:3px;}
 
-  header{padding:38px 20px 0;}
-  .header-inner{max-width:1180px;margin:0 auto;}
+  header{padding:38px 0 0;}
+  .header-inner{max-width:1180px;margin:0 auto;padding:0 24px;}
   .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-faint);margin-bottom:14px;}
   h1.title{font-weight:800;font-size:23px;line-height:1.4;letter-spacing:-.01em;margin:0 0 10px;}
   h1.title .accent{color:var(--pine);}
@@ -58,7 +58,7 @@
   .gval .goal{font-size:17px;color:var(--ink-faint);font-weight:500;}
   /* 24칸 — 한 칸이 1학점. 노랑은 GR기초, 초록은 GR심화, 연한 쪽은 수강 예정. */
   .bar{display:flex;gap:2px;height:11px;margin-top:10px;}
-  .bar i{flex:1;background:#E2E2DE;border-radius:2px;}
+  .bar i{flex:1;background:#DDE4E2;border-radius:2px;}
   .bar i.bd{background:var(--amber);}
   .bar i.bp{background:#E0C894;}
   .bar i.ad{background:var(--pine);}
@@ -121,7 +121,7 @@
   .sec-note{font-size:13px;color:var(--ink-soft);margin:0 0 14px;}
 
   /* import */
-  .guide{border:1.3px solid var(--line);border-radius:8px;padding:11px 13px 12px;margin-bottom:14px;background:#FAFAF8;}
+  .guide{border:1.3px solid var(--line);border-radius:8px;padding:11px 13px 12px;margin-bottom:14px;background:#F9FAFA;}
   .guide .ghead{font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:8px;}
   .gsteps{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:7px;counter-reset:g;}
   .gsteps li{display:flex;align-items:center;gap:6px;font-size:13px;line-height:1.5;}
@@ -153,7 +153,7 @@
   .rrow.fail{opacity:.45;}
   .rrow.dup{opacity:.55;}
   .rrow.gstart{border-top:1.5px solid var(--line);}
-  .rowhead{display:flex;align-items:center;gap:9px;padding:7px 10px;background:#F5F5F2;
+  .rowhead{display:flex;align-items:center;gap:9px;padding:7px 10px;background:var(--gray-wash);
            border-bottom:1.3px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--ink-faint);}
   .rowhead .rt{width:60px;flex-shrink:0;}
   .rowhead .rn{flex:1;}
@@ -202,7 +202,7 @@
   .blist li{position:relative;padding-left:13px;margin-bottom:2px;}
   .blist li:last-child{margin-bottom:0;}
   .blist li::before{content:'·';position:absolute;left:3px;top:-1px;font-weight:700;}
-  .majorbox{border:1.4px solid var(--line);border-radius:9px;padding:11px 13px 12px;background:#FCFCFB;}
+  .majorbox{border:1.4px solid var(--line);border-radius:9px;padding:11px 13px 12px;background:#FBFCFC;}
   .majorbox .chips{margin-bottom:2px;}
   .chip.plain{font-family:inherit;font-size:13.5px;font-weight:700;padding:7px 15px;}
   .chip.m-arch.on{border-color:var(--arch);background:#FBF1F0;color:var(--arch);}
@@ -232,7 +232,7 @@
   .trow .tk{flex:1;font-size:13.5px;}
   .trow .tk em{font-style:normal;color:var(--ink-faint);font-size:12px;display:block;line-height:1.5;margin-top:1px;}
   .trow .tv{font-family:var(--mono);font-size:14px;font-weight:600;flex-shrink:0;}
-  .trow.sum{background:#F7F7F5;}
+  .trow.sum{background:#F6F7F7;}
   .trow.dim .tk,.trow.dim .tv{color:var(--ink-faint);}
 
   /* path */
@@ -260,7 +260,7 @@
   .cw .cm{font-family:var(--mono);font-size:11px;color:var(--ink-faint);line-height:1.5;display:block;margin-top:1px;}
   .cw .cm b{font-weight:700;color:var(--ink-soft);}
   .cw .cs{font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:5px;flex-shrink:0;
-          background:#F4F4F1;color:var(--ink-faint);}
+          background:#F2F4F4;color:var(--ink-faint);}
   .cw.done .cs{background:var(--amber);color:#fff;}
   .cw.done .cn{font-weight:600;}
   .cw.planned{background:var(--amber-wash);}
@@ -278,16 +278,16 @@
   .cw.locked .cn{font-weight:400;}
   .cw.warn .cs{background:var(--flag-wash);color:var(--flag);}
   .mark{font-family:var(--mono);font-size:10.5px;color:var(--flag);margin-left:4px;}
-  .mark.late{background:#F2F2EE;color:var(--ink-faint);padding:1px 5px;border-radius:4px;}
+  .mark.late{background:#F0F2F2;color:var(--ink-faint);padding:1px 5px;border-radius:4px;}
   .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11.5px;color:var(--ink-faint);margin-bottom:14px;}
   .legend span{display:flex;align-items:center;gap:5px;}
   .legend i{width:9px;height:9px;border-radius:2px;display:block;}
                 padding:6px 11px;cursor:pointer;color:var(--ink-soft);}
-  .gate{display:flex;gap:8px;font-size:13px;padding:9px 11px;border-radius:7px;background:#F7F7F5;
+  .gate{display:flex;gap:8px;font-size:13px;padding:9px 11px;border-radius:7px;background:#F6F7F7;
         color:var(--ink-soft);margin-top:10px;line-height:1.5;}
   .gate.met{background:var(--pine-wash);color:var(--pine-dim);}
   .gate .gm{font-family:var(--mono);font-size:11.5px;flex-shrink:0;
-            background:#EDEDEA;color:var(--ink-soft);padding:1px 7px;border-radius:5px;line-height:1.5;}
+            background:var(--line-soft);color:var(--ink-soft);padding:1px 7px;border-radius:5px;line-height:1.5;}
   .gate.met .gm{background:#D7E8E2;color:var(--pine-dim);}
   .empty{font-size:13px;color:var(--ink-faint);padding:16px 0;text-align:center;}
   .gated{display:none;}
